@@ -1,14 +1,14 @@
 import AddTodo from "./Components/AddTodo";
 import Header from "./Components/Header";
-import Todo1 from "./Components/Todo1";
-import Todo2 from "./Components/Todo2";
+import { Todo1, Todo2 } from "./Components/Todo";
+import "./App.css";
 
 function App() {
   return (
-    <center className="todo-container">
+    <center className="container">
       <Header />
-      <div className="container text-center">
-        <AddTodo />
+      <AddTodo />
+      <div className="todo-container">
         <Todo1 />
         <Todo2 />
       </div>
