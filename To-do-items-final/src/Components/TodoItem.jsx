@@ -1,10 +1,10 @@
  import React from 'react';
 import Todo from './Todo';
 
-function TodoItem({todoItems}) {
+function TodoItem(props) {
   return (
     <div className="todo-container">
-        {todoItems.map(item=><Todo todoName={item.name} todoDate={item.duedate} />)}
+        {props.todoItems.map(item=><Todo todoName={item.name} key={item.name} todoDate={item.duedate} onDeleteClick={props.onDeleteClick}/>)}
     </div>
   )
 }

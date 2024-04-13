@@ -1,13 +1,15 @@
 import React from "react";
 
-function Todo({todoName,todoDate}) {
+function Todo(props) {
 
   return (
     <div className="row kg-row">
-      <div className="col-6">{todoName}</div>
-      <div className="col-4">{todoDate}</div>
+      <div className="col-6">{props.todoName}</div>
+      <div className="col-4">{props.todoDate}</div>
       <div className="col-2">
-        <button type="button" className="btn btn-danger kg-button">
+        <button type="button" className="btn btn-danger kg-button" onClick={()=>{
+          props.onDeleteClick(props.todoName)
+        }}>
           Delete
         </button>
       </div>
