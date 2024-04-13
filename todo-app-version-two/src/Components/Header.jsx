@@ -1,9 +1,10 @@
 import React from 'react'
-
+import styles from './Header.module.css'
 function Header() {
   return (
     <div>
-      <h1>TODO App</h1>
+      <h1 className={styles.toDoHeading}>TODO App</h1>
+      
     </div>
   )
 }
