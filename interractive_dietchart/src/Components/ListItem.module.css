@@ -1,0 +1,16 @@
+.kg-item{
+  background-color: #ebebef;
+  color:#0d0c0c;
+}
+.kg-span{
+  color:#0a0a0a;
+  font-weight: bold;
+}
+.button{
+  margin:4px;
+  background-color: #09ecec;
+  color:#080808;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  float: right;
+}
