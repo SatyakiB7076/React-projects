@@ -11,10 +11,15 @@ function AddTodo({ onSubmit }) {
     setdueDates(event.target.value);
   };
   const handleButtonClicked = () => {
+    if (!todoName || !dueDates) { 
+      alert("Please fill out all fields"); 
+      return; 
+    }
     onSubmit(todoName, dueDates);
     setTodoName("");
     setdueDates("");
   };
+  
   return (
     <div>
       <div className="row kg-row">
