@@ -1,49 +1,47 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import { MdAddTask } from "react-icons/md";
 function AddTodo({ onSubmit }) {
-  let [todoName, setTodoName] = useState("");
-  let [dueDates, setdueDates] = useState("");
+  const todoNameElement=useRef();
+  const dueDateElement=useRef();
 
-  const handleNameChange = (event) => {
-    setTodoName(event.target.value);
-  };
-  const handleDateChange = (event) => {
-    setdueDates(event.target.value);
-  };
-  const handleButtonClicked = () => {
-    if (!todoName || !dueDates) { 
+
+  const handleButtonClicked = (event) => {
+   
+    event.preventDefault();
+    const todoName=todoNameElement.current.value;
+    const dueDates=dueDateElement.current.value;
+     if (!todoName || !dueDates) { 
       alert("Please fill out all fields"); 
       return; 
     }
     onSubmit(todoName, dueDates);
-    setTodoName("");
-    setdueDates("");
+    todoNameElement.current.value="";
+    dueDateElement.current.value="";
   };
   
   return (
     <div>
-      <div className="row kg-row">
+      <form className="row kg-row" onSubmit={handleButtonClicked}>
         <div className="col-6">
           <input
             type="text"
             placeholder="Enter todo here"
-            value={todoName}
-            onChange={handleNameChange}
+            ref={todoNameElement}
           />
         </div>
         <div className="col-4">
-          <input type="date" value={dueDates} onChange={handleDateChange} />
+          <input type="date" ref={dueDateElement} />
         </div>
         <div className="col-2">
           <button
-            type="button"
+            type="submit"
             className="btn btn-success kg-button"
-            onClick={handleButtonClicked}
+            
           >
             <MdAddTask />
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
