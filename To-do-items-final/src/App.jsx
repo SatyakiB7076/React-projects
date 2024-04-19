@@ -4,13 +4,15 @@ import TodoItem from "./Components/TodoItem";
 import WelcomeMessage from "./Components/WelcomeMessage";
 import "./App.css";
 import { useState } from "react";
+import {TodoItemsContext} from './Store/TodoItemStore'
 function App() {
   
   const [todoItems, setTodoItems] = useState([]);
 
   const handleNewItem = (itemName, itemDate) => {
-    // console.log(`new item added : ${itemName} date:${itemDate}`);
-    setTodoItems([...todoItems, { name: itemName, duedate: itemDate }]);
+   //using a method in setmethod so react will always pass the current updated value 
+    setTodoItems((currValue)=>[
+      ...currValue, {name:itemName, dueDate: itemDate}]);
   };
 const handleDeleteItem=(todoItemName)=>{
 // console.log(`item that got deleted: ${todoItemName}`);
@@ -20,14 +22,17 @@ setTodoItems(newTodoItems);
 
 
   return (
+    
+    <TodoItemsContext.Provider>
     <>
       <Header />
       <center className="container">
         <AddTodo onSubmit={handleNewItem} />
-        {todoItems.length===0 && <WelcomeMessage />}
+        <WelcomeMessage todoItems={todoItems}/>
         <TodoItem todoItems={todoItems} onDeleteClick={handleDeleteItem}/>
       </center>
     </>
+    </TodoItemsContext.Provider>
   );
 }
 
