@@ -9,12 +9,13 @@ function AddTodo({ onSubmit }) {
    
     event.preventDefault();
     const todoName=todoNameElement.current.value;
-    const dueDates=dueDateElement.current.value;
-     if (!todoName || !dueDates) { 
+    const dueDate=dueDateElement.current.value;
+     if (!todoName || !dueDate) { 
       alert("Please fill out all fields"); 
       return; 
     }
-    onSubmit(todoName, dueDates);
+    onSubmit(todoName, dueDate);
+    
     todoNameElement.current.value="";
     dueDateElement.current.value="";
   };
@@ -35,9 +36,7 @@ function AddTodo({ onSubmit }) {
         <div className="col-2">
           <button
             type="submit"
-            className="btn btn-success kg-button"
-            
-          >
+            className="btn btn-success kg-button">
             <MdAddTask />
           </button>
         </div>

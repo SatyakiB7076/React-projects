@@ -12,7 +12,7 @@ function App() {
   const handleNewItem = (itemName, itemDate) => {
    //using a method in setmethod so react will always pass the current updated value 
     setTodoItems((currValue)=>[
-      ...currValue, {name:itemName, dueDate: itemDate}]);
+      ...currValue, {name: itemName, dueDate: itemDate}]);
   };
 const handleDeleteItem=(todoItemName)=>{
 // console.log(`item that got deleted: ${todoItemName}`);
@@ -23,15 +23,15 @@ setTodoItems(newTodoItems);
 
   return (
     
-    <TodoItemsContext.Provider>
-    <>
+    <TodoItemsContext.Provider value={todoItems}>
+    
       <Header />
       <center className="container">
         <AddTodo onSubmit={handleNewItem} />
-        <WelcomeMessage todoItems={todoItems}/>
-        <TodoItem todoItems={todoItems} onDeleteClick={handleDeleteItem}/>
+        <WelcomeMessage/>
+        <TodoItem onDeleteClick={handleDeleteItem}/>
       </center>
-    </>
+    
     </TodoItemsContext.Provider>
   );
 }
