@@ -9,12 +9,12 @@ function App() {
   
   const [todoItems, setTodoItems] = useState([]);
 
-  const handleNewItem = (itemName, itemDate) => {
+  const addNewItem = (itemName, itemDate) => {
    //using a method in setmethod so react will always pass the current updated value 
     setTodoItems((currValue)=>[
       ...currValue, {name: itemName, dueDate: itemDate}]);
   };
-const handleDeleteItem=(todoItemName)=>{
+const deleteItem=(todoItemName)=>{
 // console.log(`item that got deleted: ${todoItemName}`);
 const newTodoItems=todoItems.filter(item=>item.name!== todoItemName);
 setTodoItems(newTodoItems);
@@ -23,13 +23,13 @@ setTodoItems(newTodoItems);
 
   return (
     
-    <TodoItemsContext.Provider value={todoItems}>
+    <TodoItemsContext.Provider value={{todoItems,addNewItem,deleteItem}}>
     
       <Header />
       <center className="container">
-        <AddTodo onSubmit={handleNewItem} />
+        <AddTodo />
         <WelcomeMessage/>
-        <TodoItem onDeleteClick={handleDeleteItem}/>
+        <TodoItem />
       </center>
     
     </TodoItemsContext.Provider>

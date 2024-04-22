@@ -1,9 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef,useContext } from "react";
 import { MdAddTask } from "react-icons/md";
-function AddTodo({ onSubmit }) {
+import { TodoItemsContext } from "../Store/TodoItemStore";
+function AddTodo() {
   const todoNameElement=useRef();
   const dueDateElement=useRef();
-
+  const {addNewItem}= useContext(TodoItemsContext)
 
   const handleButtonClicked = (event) => {
    
@@ -14,7 +15,7 @@ function AddTodo({ onSubmit }) {
       alert("Please fill out all fields"); 
       return; 
     }
-    onSubmit(todoName, dueDate);
+    addNewItem(todoName, dueDate);
     
     todoNameElement.current.value="";
     dueDateElement.current.value="";
