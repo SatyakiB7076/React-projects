@@ -5,7 +5,7 @@ import {TodoItemsContext} from '../Store/TodoItemStore'
 
 
 function TodoItem() {
-  const {todoItems,deleteItem}=useContext(TodoItemsContext);
+  const {todoItems}=useContext(TodoItemsContext);
  
   return (
     <div>
@@ -14,7 +14,7 @@ function TodoItem() {
           todoName={item.name}
           key={item.name}
           todoDate={item.dueDate}
-          onDeleteClick={deleteItem}
+          
         />
       ))}
     </div>
