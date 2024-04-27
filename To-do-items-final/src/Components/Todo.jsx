@@ -12,7 +12,7 @@ function Todo(props) {
         <button type="button" className="btn btn-danger kg-button" onClick={()=>{
           deleteItem(props.todoName)
         }}>
-          <MdDelete/>
+          <MdDelete/> 
         </button>
       </div>
     </div>

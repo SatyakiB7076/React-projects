@@ -3,22 +3,44 @@ import Header from "./Components/Header";
 import TodoItem from "./Components/TodoItem";
 import WelcomeMessage from "./Components/WelcomeMessage";
 import "./App.css";
-import { useState } from "react";
+import { useReducer} from "react";
 import {TodoItemsContext} from './Store/TodoItemStore'
+
+const todoItemsReducer=(currTodoItems,action)=>{
+  let newTodoItems=currTodoItems;
+if(action.type==="NEW_ITEM"){
+  newTodoItems=[...currTodoItems, {name: action.payload.itemName, dueDate: action.payload.itemDate}];
+}else if(action.type==="DELETE_ITEM"){
+  newTodoItems=currTodoItems.filter((item)=>item.name!== action.payload.itemName);
+  
+}
+return newTodoItems;
+}
 function App() {
   
-  const [todoItems, setTodoItems] = useState([]);
+  // const [todoItems, setTodoItems] = useState([]);
+  const [todoItems, dispatchTodoItems]=useReducer(todoItemsReducer,[]);
 
   const addNewItem = (itemName, itemDate) => {
-   //using a method in setmethod so react will always pass the current updated value 
-    setTodoItems((currValue)=>[
-      ...currValue, {name: itemName, dueDate: itemDate}]);
+    const newItemAction={
+      type:"NEW_ITEM",
+      payload:{
+        itemName,itemDate
+      }
+    };
+    dispatchTodoItems(newItemAction);   
   };
-const deleteItem=(todoItemName)=>{
-// console.log(`item that got deleted: ${todoItemName}`);
-const newTodoItems=todoItems.filter(item=>item.name!== todoItemName);
-setTodoItems(newTodoItems);
-}
+
+  const deleteItem = (itemName) => {
+    const deleteItemAction={
+      type:"DELETE_ITEM",
+      payload:{
+        itemName
+      }
+    };
+    dispatchTodoItems(deleteItemAction);   
+  };
+
 
 
   return (
