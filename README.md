@@ -1,4 +1,4 @@
-<h3 align="center">Welcome to my multi-project repository!</h3>
+<h3 align="center">Welcome to my Multi-React-Project repository!</h3>
 
 
 Here you'll find a collection of diverse applications built using React and Redux. Each project serves as a demonstration of different features and functionalities implemented with these technologies.
