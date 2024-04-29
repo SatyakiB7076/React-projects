@@ -2,19 +2,13 @@ import React from 'react'
 
 function Footer() {
   return (
-    <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 ">
-    <p className="col-md-4 mb-0 text-body-secondary">© 2024 Company, Inc</p>
-
-    <a href="/" className="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-      <svg className="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-    </a>
-
-    <ul className="nav col-md-4 justify-content-end">
-      <li className="nav-item"><a href="#" className="nav-link px-2 text-body-secondary">Home</a></li>
-      
-      <li className="nav-item"><a href="#" className="nav-link px-2 text-body-secondary">FAQs</a></li>
-      <li className="nav-item"><a href="#" className="nav-link px-2 text-body-secondary">Contact Us</a></li>
+    <footer className="py-3 text-bg-dark">
+    <ul className="nav justify-content-center border-bottom pb-3 mb-3">
+      <li className="nav-item"><a href="#" className="nav-link px-2 text-white ">Home</a></li>
+      <li className="nav-item"><a href="#" className="nav-link px-2 text-white">Posts</a></li>
+      <li className="nav-item"><a href="#" className="nav-link px-2 text-white">Contact Us</a></li>
     </ul>
+    <p className="text-center text-white">© 2024 Company, Inc</p>
   </footer>
   )
 }

@@ -1,4 +1,6 @@
-.sidebar{
-  height: 91vh;
-  
+.app-container{
+  display: flex;
+}
+.content{
+  width: 100%;
 }
