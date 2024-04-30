@@ -14,8 +14,8 @@ const PostListReducer=(currPostList,action)=>{
 const addPost=()=>{
 
 };
-const deletePost=()=>{
-
+const deletePost=(postId)=>{
+console.log(`deleted post with id ${postId}`);
 };
 const PostListProvider=({children})=>{
 const [postList,dispatchPostList]=useReducer(PostListReducer,DEFAULT_POST_LIST)
