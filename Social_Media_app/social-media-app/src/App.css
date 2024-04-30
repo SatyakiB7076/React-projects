@@ -7,3 +7,12 @@
 body{
   overflow-y:scroll;
 }
+.post-card{
+  margin: 20px 50px;
+}
+.hashtag{
+  padding: 0.9%;
+  margin: 1%;
+  text-align: center;
+}
+

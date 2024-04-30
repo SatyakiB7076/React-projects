@@ -1,15 +1,43 @@
-import React from 'react'
+import React from "react";
+import { MdDeleteOutline } from "react-icons/md";
+import { SlLike } from "react-icons/sl";
 
-function Post() {
+function Post({ post }) {
+  const handleDelete = () => {
+    // Implement delete functionality here
+  };
+
   return (
-    <div className="card" style={{width: "18rem"}}>
-  <div className="card-body">
-    <h5 className="card-title">Card title</h5>
-    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" className="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-  )
+    <center>
+    <div className="card post-card"  key={post.id}>
+      <div className="card-body">
+        <h3 className="card-title">{post.title}</h3>
+        <p className="card-text">{post["body"]}</p>
+
+        {post.tags.map((item, index) => (
+          <span key={index} className="badge text-bg-primary mx-1 hashtag">
+            {item}
+          </span>
+        ))}
+
+        <hr />
+
+        <button
+          type="button"
+          className="btn btn-primary position-relative"
+          
+        >
+          <SlLike />
+          <span className="position-absolute translate-middle badge rounded-pill bg-danger">
+            {post.reactions}
+          </span>
+        </button>
+          <button type="button" className="btn btn-danger position-relative mx-1" onClick={handleDelete}>
+            <MdDeleteOutline />
+          </button>
+      </div>
+    </div>
+    </center>);
 }
 
-export default Post
+export default Post;

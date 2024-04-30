@@ -28,12 +28,6 @@ function Sidebar({selectedTab, setSelectedTab}) {
           Create Post
         </a>
       </li>
-      <li>
-        <a href="#" className="nav-link text-white">
-          <svg className="bi pe-none me-2" width="16" height="16"><use xlinkHref="#table"></use></svg>
-          Contact Us
-        </a>
-      </li>
     </ul>
     
     
