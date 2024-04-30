@@ -1,13 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { MdDeleteOutline } from "react-icons/md";
 import { SlLike } from "react-icons/sl";
-import { PostList} from '../Store/Post-list-store';
-
+import { PostList } from '../Store/Post-list-store';
 
 function Post({ post }) {
-  const {deletePost}=useContext(PostList)
+  const [likeCount, setLikeCount] = useState(post.reactions); 
+  const { deletePost } = useContext(PostList);
+
   const handleDelete = () => {
-    deletePost(post.id)
+    deletePost(post.id);
+  };
+
+  const handleLike = () => {
+    
+    setLikeCount(likeCount + 1);
   };
 
   return (
@@ -22,13 +28,13 @@ function Post({ post }) {
               {item}
             </span>
           ))}
-
+<p>{likeCount} people have liked this post</p>
           <hr />
 
-          <button type="button" className="btn btn-primary position-relative">
+          <button type="button" className="btn btn-primary position-relative" onClick={handleLike}>
             <SlLike />
             <span className="position-absolute translate-middle badge rounded-pill bg-danger">
-              {post.reactions}
+              {likeCount} 
             </span>
           </button>
           <button
