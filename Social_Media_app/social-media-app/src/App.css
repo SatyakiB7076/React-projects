@@ -16,5 +16,11 @@ body{
   text-align: center;
 }
 .createPost{
-  width: 38rem;
+  width: 100%;
+}
+.footer{
+  z-index: 1;
+}
+.sidebar{
+  z-index: 10;
 }

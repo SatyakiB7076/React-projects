@@ -1,26 +1,73 @@
-import React from 'react'
+import React from "react";
 
 function CreatePost() {
   return (
-    <form className='create-post mx-5 my-3'>
-      <center className='createPost'>
-  <div className="mb-3">
-    <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div className="mb-3">
-    <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-    <input type="password" className="form-control" id="exampleInputPassword1"/>
-  </div>
-  <div className="mb-3 form-check">
-    <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-    <label className="form-check-label" htmlFor="exampleCheck1">Keep me logged in</label>
-  </div>
-  <button type="submit" className="btn btn-primary">Submit</button>
-</center>
-</form>
-  )
+    <form className="create-post mx-5 my-3">
+      <center className="createPost">
+        <div className="mb-3">
+          <label htmlFor="title" className="form-label">
+            UserId
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="userId"
+            placeholder="Enter your userId here.."
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="title" className="form-label">
+            Post Title
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="title"
+            placeholder="How are you feeling today.."
+          />
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="title" className="form-label">
+            Post Content
+          </label>
+          <textarea
+            type="text"
+            className="form-control"
+            id="title"
+            placeholder="Tell us more about it.."
+            rows={4}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="title" className="form-label">
+            No of Reactions
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="reactions"
+            placeholder="These many people reacted to the post.."
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="title" className="form-label">
+            Hash Tags
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="tags"
+            placeholder="add tags here.."
+          />
+        </div>
+
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
+      </center>
+    </form>
+  );
 }
 
-export default CreatePost
+export default CreatePost;
